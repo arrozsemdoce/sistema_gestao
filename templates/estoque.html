@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h4>Estoque</h4>
+    <a href="/estoque/novo" class="btn btn-primary"><i class="bi bi-plus"></i> Novo Produto</a>
+</div>
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+        <tr><th>Código</th><th>Nome</th><th>Quantidade</th><th>Preço</th><th>Ações</th></tr>
+    </thead>
+    <tbody>
+        {% for p in produtos %}
+        <tr>
+            <td>{{ p.codigo }}</td>
+            <td>{{ p.nome }}</td>
+            <td>{{ p.quantidade }}</td>
+            <td>R$ {{ "%.2f"|format(p.preco) }}</td>
+            <td>
+                <a href="/estoque/editar/{{ p.id }}" class="btn btn-sm btn-warning">Editar</a>
+                <a href="/estoque/deletar/{{ p.id }}" class="btn btn-sm btn-danger" onclick="return confirm('Remover produto?')">Remover</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="5" class="text-center">Nenhum produto cadastrado</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

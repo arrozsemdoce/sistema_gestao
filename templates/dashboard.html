@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<h4 class="mb-4">Dashboard</h4>
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card text-white bg-primary shadow">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <h6 class="card-title">Produtos em Estoque</h6>
+                    <h2>{{ total_produtos }}</h2>
+                </div>
+                <i class="bi bi-box fs-1"></i>
+            </div>
+            <div class="card-footer"><a href="/estoque" class="text-white">Ver estoque →</a></div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-success shadow">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <h6 class="card-title">Clientes Cadastrados</h6>
+                    <h2>{{ total_clientes }}</h2>
+                </div>
+                <i class="bi bi-people fs-1"></i>
+            </div>
+            <div class="card-footer"><a href="/clientes" class="text-white">Ver clientes →</a></div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-warning shadow">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <h6 class="card-title">Leads no CRM</h6>
+                    <h2>{{ total_leads }}</h2>
+                </div>
+                <i class="bi bi-graph-up fs-1"></i>
+            </div>
+            <div class="card-footer"><a href="/crm" class="text-white">Ver CRM →</a></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
